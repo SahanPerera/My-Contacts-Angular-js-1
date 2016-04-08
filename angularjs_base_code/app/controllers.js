@@ -1,13 +1,24 @@
-var ContactsModule =  angular.module('Contacts.controllers',[])
-.controller('ContactsListController', function($scope,$location)
+var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service'])
+.controller('ContactsListController', function($scope,$location,Contacts)
 {
-	$scope.contacts=[
-                        {id:1,name:"Sahan",contact_no:"0711332607",address:"Gampaha",email:"csahanperera@gamil.com",staus:"1"},
-                        {id:2,name:"Maduranga",contact_no:"072247288",address:"Kirulapone",email:"lmaduranga@gamil.com",staus:"1"},
-                        {id:3,name:"Prassanna",contact_no:"0722247261",address:"Monaragala",email:"prassanna@gamil.com",staus:"1"},
-                        {id:4,name:"Ashfan",contact_no:"0722247221",address:"Pasyala",email:"ashfan@gamil.com",staus:"1"},
-                        {id:5,name:"Nadeesha",contact_no:"0722247277",address:"Kalaniya",email:"nadeesha@gamil.com",staus:"1"},
-                    ];
+	// get all contact numbers
+	Contacts.get().$promise.then(function success(response) {	
+
+		$scope.Contacts = response[0];
+		console.log($scope.Contacts );
+		//TODO:: show success msg
+	}, function fail(response) {
+		//TODO:: show fail error
+	});
+
+
+	// $scope.contacts=[
+ //                        {id:1,name:"Sahan",contact_no:"0711332607",address:"Gampaha",email:"csahanperera@gamil.com",staus:"1"},
+ //                        {id:2,name:"Maduranga",contact_no:"072247288",address:"Kirulapone",email:"lmaduranga@gamil.com",staus:"1"},
+ //                        {id:3,name:"Prassanna",contact_no:"0722247261",address:"Monaragala",email:"prassanna@gamil.com",staus:"1"},
+ //                        {id:4,name:"Ashfan",contact_no:"0722247221",address:"Pasyala",email:"ashfan@gamil.com",staus:"1"},
+ //                        {id:5,name:"Nadeesha",contact_no:"0722247277",address:"Kalaniya",email:"nadeesha@gamil.com",staus:"1"},
+ //                    ];
     // function for delete the contact
     $scope.delete = function() {
     	alert('delete');

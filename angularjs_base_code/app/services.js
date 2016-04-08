@@ -1,13 +1,13 @@
-var url ='http://localhost/rest_api/';
-var DesktopUsersServices = angular.module('Contacts.service', ['ngResource']);
+var url ='https://my-contacts-laravel-api-sahan.c9users.io/laravel/public/api/v1/';
 
-// id is the parameter
-DesktopUsersServices.factory('Auth', function ($resource) {
-    return $resource('http://localhost/rest_api/members/:id', {}, {
-        get: { method: 'GET'},
-        query: { method: 'GET' ,params: {id: '@id'}},
-        update: { method: 'PUT' ,params: {id: '@id'}},
-        post: { method: 'POST' ,params: {id: '@id'}},
+var ContactsServices = angular.module('Contacts.service', ['ngResource']);
+
+ContactsServices.factory('Contacts', function ($resource) {
+     return $resource(url+'contact/:id', {}, {
+        create: { method: 'POST' },
+        get: { method: 'GET' ,params: {id: '@id'},isArray:true},
+        query: { method: 'GET' ,params: {id: '@id',isArray:false}},
+        update: { method: 'put' ,params: {id: '@id'}},
         delete: { method: 'DELETE' ,params: {id: '@id'}}
     });
 });

@@ -1,0 +1,48 @@
+<h2>Contact Add</h2>
+<div class="col-sm-12">	
+<toast class="col-sm-6 col-md-offset-2"></toast>
+</div>
+
+<form angular-validator-submit="contactSave()" name="myForm" class="form-horizontal" novalidate angular-validator>
+	<div class="form-group">
+		<label for="inputName" class="col-sm-2 control-label">Name</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputname" placeholder="Name" required name="name" ng-model="contact.name" validate-on="dirty" ng-minlength="2" ng-maxlength="20">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputcontactno" class="col-sm-2 control-label">Contact No</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="inputcontact_no" placeholder="Contact No" required name="contact_no" ng-model="contact.contact_no" validate-on="dirty" ng-pattern="/^[0-9]*$/" ng-minlength="10" ng-maxlength="10"/>
+		</div>
+	</div>
+	<div class="form-group">
+	<label for="inputaddress" class="col-sm-2 control-label">Address</label>
+		<div class="col-sm-6">
+			<textarea class="form-control" rows="3" id="inputaddress" placeholder="Address" required name="address" ng-model="contact.address" validate-on="dirty"></textarea>
+		</div>
+	</div>  
+	<div class="form-group">
+		<label for="inputemail" class="col-sm-2 control-label">Email</label>
+		<div class="col-sm-6">
+			<input type="email" class="form-control" id="inputemail" placeholder="Email" required  name="email" ng-model="contact.email" validate-on="dirty">
+		</div>
+	</div>  
+	<div class="form-group">
+		<label for="inputcontactno" class="col-sm-2 control-label">Status</label>
+		<div class="col-sm-1">
+			<select class="form-control" ng-model="contact.status">
+				<option value="1">Enable</option>
+				<option value="2">Disable</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-6">
+			<button type="submit" class="btn btn-primary" >Save</button>
+			<button type="button" ng-click="contactForm.reset()" class="btn btn-default">Cancel</button>
+		</div>
+	</div>
+</form>
+

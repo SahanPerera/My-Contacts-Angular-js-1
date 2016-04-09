@@ -12,7 +12,12 @@ var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service']
 
     // function for delete the contact
     $scope.delete = function(id) {
-    	alert('delete');
+    	alert(id);
+		Contacts.delete({id:$stateParams.id}).$promise.then(function success(response) {	
+			console.log(response[0]);
+		}, function fail(response) {
+			console.log(response[0]);
+		});
     };
 
 })

@@ -1,6 +1,6 @@
 angular.module('myContactBook', ['ui.router','Contacts.controllers','angularValidator','ngToast','mydirectives'])
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider,$httpProvider) {
  
   $stateProvider    
     .state('template1', {
@@ -24,6 +24,7 @@ angular.module('myContactBook', ['ui.router','Contacts.controllers','angularVali
         controller:'ContactsAddController'
     })  
     $urlRouterProvider.otherwise('/contactlist');
-
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 })
 .run(function(){ });

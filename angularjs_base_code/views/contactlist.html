@@ -1,4 +1,5 @@
-<a href="#contactadd}}"><i class="glyphicon glyphicon-edit"></i>Add</a>
+<a href="#contactadd"><input type="button" class="btn btn-primary" value="Add New Contct"></a>
+
 <table class="table table-bordered">
 	<thead>
 		<tr> 
@@ -17,7 +18,7 @@
 			<td>{{ contact.email }}</td>
 			<td>
 				<a href="#contactedit/{{contact.id}}"><i class="glyphicon glyphicon-edit"></i></a>
-				<a 	ng-click="delete()"><i class="glyphicon glyphicon-remove-sign"></i></a>
+				<a 	ng-click="delete(contact.id)"><i class="glyphicon glyphicon-remove-sign"></i></a>
 			</td>
 		</tr>
 

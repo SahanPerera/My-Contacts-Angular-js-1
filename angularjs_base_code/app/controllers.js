@@ -1,5 +1,5 @@
 var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service'])
-.controller('ContactsListController', function($scope,$location,Contacts)
+.controller('ContactsListController', function($scope,$location,$state,Contacts)
 {
 	// get all contact numbers
 	Contacts.get().$promise.then(function success(response) {	
@@ -11,13 +11,18 @@ var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service']
 	});
 
     // function for delete the contact
-    $scope.delete = function(id) {
-    	alert(id);
-		Contacts.delete({id:$stateParams.id}).$promise.then(function success(response) {	
-			console.log(response[0]);
-		}, function fail(response) {
-			console.log(response[0]);
-		});
+    $scope.delete = function(contact_id) {
+    	
+		var deleteConform = confirm("Do You Want to Delete!");
+		if (deleteConform == true) {
+			Contacts.delete({id:contact_id}).$promise.then(function success(response) {	
+				$state.reload();
+				//console.log(response[0]);
+			}, function fail(response) {
+				console.log(response[0]);
+			});
+		    
+		}
     };
 
 })
@@ -25,7 +30,7 @@ var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service']
 {
 
 	$scope.contact = new Contacts;
-	$scope.contact.status = 1;
+	$scope.contact.status = '1';
 	//functon for storing form data
 	$scope.contactSave = function(formDate) {
 		console.log($scope.contact);
@@ -55,8 +60,8 @@ var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service']
 	Contacts.get({id:$stateParams.id}).$promise.then(function success(response) {	
 		//asign responce data 
 		$scope.contact = response[0];
+		$scope.contact.status = String(response[0].status);
 	}, function fail(response) {
-		console.log(response[0]);
 	});
 	// $scope.Contacts={};
 	$scope.contactUpdate = function(formDate) {

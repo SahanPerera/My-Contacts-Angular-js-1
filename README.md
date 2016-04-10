@@ -24,13 +24,13 @@ create a database called my_contacts and Import the database file.
 
 ### Client App
 
-Our client application is a straight HTML/Angular js application.
+Our client application is a straight HTML/Angular js.
 
-	Install local dependencies (from the project root folder):
+Install local dependencies (from the project root folder):
 
-		```sh
-		    cd client
-			npm install
-			cd ..
-		```
-	Config the Rest Api Url in /app/service.js
+```sh
+    cd client
+	npm install
+	cd ..
+```
+Config the Rest Api Url in /app/service.js

@@ -32,7 +32,7 @@ var ContactsModule =  angular.module('Contacts.controllers',['Contacts.service']
 	$scope.contact = new Contacts;
 	$scope.contact.status = '1';
 	//functon for storing form data
-	$scope.contactSave = function(formDate) {
+	$scope.submitMyForm = function(formDate) {
 		console.log($scope.contact);
 		$scope.contact.$post().then(function success(response) {
 			$location.path('contactlist');

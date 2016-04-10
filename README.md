@@ -6,9 +6,11 @@ My Contact makes it easy to handle all your contacts very simply. It allows you 
 
 ### Stack
 
-Awesome AngularJS on the client
-Backend: Laravel 5
-Persistence store: MySQL
+Awesome AngularJS on the client.
+
+Backend: Laravel 5.
+
+Persistence store: MySQL.
 
 
 ## Installation
@@ -29,7 +31,7 @@ Our client application is a straight HTML/Angular js.
 Install local dependencies (from the project root folder):
 
 ```sh
-    cd client
+    cd angularjs_base_code
 	npm install
 	cd ..
 ```
